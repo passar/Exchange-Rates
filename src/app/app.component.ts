@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ExchangeServiceService } from './exchange-service.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'currencyExchange';
+  constructor(private exService: ExchangeServiceService) {
+  }
+    exchangeRate = '';
+    hasResult = false;
+    result = [];
+  currencies = ["EUR", "GBP", "SEK"];
+
+  getRates() {
+    this.exService.getExchangeRate(this.exchangeRate)
+    .subscribe((rate: any) => {
+      this.hasResult = true;
+      this.result = rate.rates;
+    });
+  }
+
+
+
 }
