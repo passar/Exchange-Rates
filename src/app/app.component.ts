@@ -7,11 +7,11 @@ import { ExchangeServiceService } from './exchange-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private exService: ExchangeServiceService) {
-  }
-    exchangeRate = '';
-    hasResult = false;
-    result = [];
+  constructor(private exService: ExchangeServiceService) {}
+
+  exchangeRate = '';
+  hasResult = false;
+  result = [];
   currencies = ["EUR", "GBP", "SEK"];
 
   getRates() {
